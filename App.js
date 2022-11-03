@@ -1,45 +1,145 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image, Text, ScrollView } from 'react-native';
 
 const App = () => {
     return (
-      <View style={ styles.contenedor }>
-        <View style={ styles.caja1 }></View>
-        <View style={ styles.caja2 }></View>
-        <View style={ styles.caja3 }></View>
-        <View style={ styles.caja4 }></View>
-      </View>
+      <ScrollView>
+
+        {/* Banner */}
+        <View style={{ flexDirection: 'row' }}>
+          <Image 
+            source={ require('./assets/img/bg.jpg') } 
+            style={[ styles.imagen, styles.banner ]}
+          />
+        </View>
+
+
+        <View style={ styles.contenedor }>
+
+          {/* Qué hacer */}
+          <Text style={ styles.titulo }>Qué hacer en París</Text>
+          <ScrollView horizontal>
+            <View>
+              <Image 
+                source={ require('./assets/img/actividad1.jpg') } 
+                style={ styles.ciudad }
+              />
+            </View>
+            <View>
+              <Image 
+                source={ require('./assets/img/actividad2.jpg') } 
+                style={ styles.ciudad }
+              />
+            </View>
+            <View>
+              <Image 
+                source={ require('./assets/img/actividad3.jpg') } 
+                style={ styles.ciudad }
+              />
+            </View>
+            <View>
+              <Image 
+                source={ require('./assets/img/actividad4.jpg') } 
+                style={ styles.ciudad }
+              />
+            </View>
+            <View>
+              <Image 
+                source={ require('./assets/img/actividad5.jpg') } 
+                style={ styles.ciudad }
+              />
+            </View>
+          </ScrollView>
+
+          {/* Mejores Alojamientos */}
+          <Text style={ styles.titulo }>Los Mejores Alojamientos</Text>
+          <View>
+            <View>
+              <Image 
+                source={ require('./assets/img/mejores1.jpg') } 
+                style={ styles.mejores }
+              />
+            </View>
+            <View>
+              <Image 
+                source={ require('./assets/img/mejores2.jpg') } 
+                style={ styles.mejores }
+              />
+            </View>
+            <View>
+              <Image 
+                source={ require('./assets/img/mejores3.jpg') } 
+                style={ styles.mejores }
+              />
+            </View>
+          </View>
+
+          {/* Hospedajes */}
+          <Text style={ styles.titulo }>Hospedajes en LA</Text>
+          <View style={ styles.listado }>
+            <View style={ styles.listadoItem }>
+              <Image 
+                source={ require('./assets/img/hospedaje1.jpg') } 
+                style={ styles.mejores }
+              />
+            </View>
+            <View style={ styles.listadoItem }>
+              <Image 
+                source={ require('./assets/img/hospedaje2.jpg') } 
+                style={ styles.mejores }
+              />
+            </View>
+            <View style={ styles.listadoItem }>
+              <Image 
+                source={ require('./assets/img/hospedaje3.jpg') } 
+                style={ styles.mejores }
+              />
+            </View>
+            <View style={ styles.listadoItem }>
+              <Image 
+                source={ require('./assets/img/hospedaje4.jpg') } 
+                style={ styles.mejores }
+              />
+            </View>
+          </View>
+
+
+        </View>
+      </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
+  banner: {
+    height: 250,
+    flex: 1
+  },
   contenedor: {
-    backgroundColor: 'cornflowerblue',
-    flex: 1,
+    marginHorizontal: 10
+  },
+  titulo: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    marginVertical: 20
+  },
+  ciudad: {
+    width: 250,
+    height: 300,
+    marginRight: 10
+  },
+  mejores: {
+    width: '100%',
+    height: 200,
+    marginVertical: 5
+  },
+  listado: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
   },
-  caja1: {
-    padding: 20,
-    backgroundColor: 'navy',
-    // flex: 3
-  },
-  caja2: {
-    padding: 20,
-    backgroundColor: 'yellow',
-    // flex: 1
-  },
-  caja3: {
-    padding: 20,
-    backgroundColor: 'green',
-    // flex: 1
-  },
-  caja4: {
-    padding: 20,
-    backgroundColor: 'teal',
-    // flex: 1
-  },
+  listadoItem: {
+    flexBasis: '49%'
+  }
 });
 
 export default App;
